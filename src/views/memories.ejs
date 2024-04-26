@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Memories</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1>Memories</h1>
+    <ul class="list-group">
+      <% memories.forEach(memory => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= memory.memory %><br>
+          <%= memory.reaction %><br>
+          <%= memory.outcome %><br>
+          <%= memory.feeling %><br>
+          <div>
+            <form action="/edit/<%= memory.id %>" method="GET" class="d-inline">
+              <button type="submit" class="btn btn-sm btn-warning me-2">Edit</button>
+            </form>
+            <form action="/delete/<%= memory.id %>" method="POST" class="d-inline">
+              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+    <a href="/add" class="btn btn-primary mt-3">Add a Memory</a>
+  </div>
+</body>
+</html>
