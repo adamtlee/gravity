@@ -24,6 +24,9 @@ app.post('/delete/:id', gratitudeController.deleteGratitudeNote);
 
 // Memories
 app.get('/memories', memoryController.getMemories);
+app.get('/memories/add', memoryController.getAddMemoryPage);
+app.post('/memories/add', memoryController.addMemory);
+
 
 // Start the server
 const port = 3000;
