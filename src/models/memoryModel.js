@@ -23,6 +23,25 @@ class Memory {
       allMemories.push(this);
       fs.writeFileSync(dataFilePath, JSON.stringify(allMemories, null, 2));
     }
+    update() {
+      const allMemories = Memory.getAllMemories();
+      const index = allMemories.findIndex(memory => memory.id === this.id);
+      if (index !== -1) {
+        allMemories[index] = this;
+        fs.writeFileSync(dataFilePath, JSON.stringify(allMemories, null, 2));
+      }
+    }
+  
+    static delete(id) {
+      const allMemories = Memory.getAllMemories();
+      const filteredMemories = allMemories.filter(memory => memory.id !== id);
+      fs.writeFileSync(dataFilePath, JSON.stringify(filteredMemories, null, 2));
+    }
+  
+    static getMemoryById(id) {
+      const allMemories = Memory.getAllMemories();
+      return allMemories.find(memory => memory.id === id);
+    }
 }
 
 module.exports = Memory;

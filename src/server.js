@@ -26,6 +26,9 @@ app.post('/delete/:id', gratitudeController.deleteGratitudeNote);
 app.get('/memories', memoryController.getMemories);
 app.get('/memories/add', memoryController.getAddMemoryPage);
 app.post('/memories/add', memoryController.addMemory);
+app.get('/memories/edit/:id', memoryController.getEditMemoryPage);
+app.post('/memories/edit/:id', memoryController.editMemory); 
+app.post('/memories/delete/:id', memoryController.deleteMemory);
 
 
 // Start the server

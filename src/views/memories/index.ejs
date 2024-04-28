@@ -13,10 +13,10 @@
           <%= memory.memory %><br>
           <%= memory.reflection %><br>
           <div>
-            <form action="/edit/<%= memory.id %>" method="GET" class="d-inline">
+            <form action="/memories/edit/<%= memory.id %>" method="GET" class="d-inline">
               <button type="submit" class="btn btn-sm btn-warning me-2">Edit</button>
             </form>
-            <form action="/delete/<%= memory.id %>" method="POST" class="d-inline">
+            <form action="/memories/delete/<%= memory.id %>" method="POST" class="d-inline">
               <button type="submit" class="btn btn-sm btn-danger">Delete</button>
             </form>
           </div>

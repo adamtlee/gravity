@@ -13,17 +13,39 @@ const memoryController = {
   },
 
   addMemory: (req, res) => {
-
-    // Retrieve memory and reflection from the request body
     const { memory, reflection } = req.body;
-
-    // Create a new memory object
     const newMemory = new Memory(reflection, memory);
-
-    // Save the new memory to the data store (e.g. file or database)
     newMemory.save();
+    res.redirect('/memories');
+  },
 
-    // Redirect the user to the memories page
+  getEditMemoryPage: (req, res) => {
+    const { id }  = req.params; 
+    const memory = Memory.getMemoryById(id);
+    
+    if(!memory){
+      res.status(404).send('Memory not found.')
+      return; 
+    }
+
+    res.render('memories/edit', { memory }); 
+  },
+
+  editMemory: (req, res) => {
+    const { id } = req.params; 
+    const { memory, reflection } = req.body;
+    const updateMemory = new Memory(reflection, memory, id)
+    
+    updateMemory.update();
+
+    res.redirect('/memories');
+  },
+
+  deleteMemory: (req, res) => {
+    const { id } = req.params; 
+
+    Memory.delete(id); 
+
     res.redirect('/memories');
   }
 };
