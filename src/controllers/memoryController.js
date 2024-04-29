@@ -46,7 +46,7 @@ const memoryController = {
 
     Memory.delete(id); 
 
-    res.redirect('/memories');
+    res.redirect('/memories/');
   }
 };
 

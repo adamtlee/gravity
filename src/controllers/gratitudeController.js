@@ -5,11 +5,11 @@ const gratitudeController = {
     // In a real app, this data would come from a database
     const gratitudeNotes = GratitudeNote.getAllGratitudeNotes();
 
-    res.render('index', { gratitudeNotes });
+    res.render('gratitudeNotes/index', { gratitudeNotes });
   },
 
   getAddGratitudeNotePage: (req, res) => {
-    res.render('addGratitudeNote');
+    res.render('gratitudeNotes/add');
   },
 
   addGratitudeNote: (req, res) => {
@@ -19,7 +19,7 @@ const gratitudeController = {
     // In a real app, you'd save the gratitude note to a database
     newGratitudeNote.save();
 
-    res.redirect('/');
+    res.redirect('/gratitudeNotes');
   },
 
   getEditGratitudeNotePage: (req, res) => {
@@ -31,7 +31,7 @@ const gratitudeController = {
       return;
     }
 
-    res.render('editGratitudeNote', { gratitudeNote });
+    res.render('gratitudeNotes/edit', { gratitudeNote });
   },
 
   editGratitudeNote: (req, res) => {
@@ -42,7 +42,7 @@ const gratitudeController = {
     // In a real app, you'd update the gratitude note in the database
     updatedGratitudeNote.update();
 
-    res.redirect('/');
+    res.redirect('/gratitudeNotes');
   },
 
   deleteGratitudeNote: (req, res) => {
@@ -51,7 +51,7 @@ const gratitudeController = {
     // In a real app, you'd delete the gratitude note from the database
     GratitudeNote.delete(id);
 
-    res.redirect('/');
+    res.redirect('/gratitudeNotes/');
   },
 };
 

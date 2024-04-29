@@ -12,17 +12,17 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <%= note.note %>
           <div>
-            <form action="/edit/<%= note.id %>" method="GET" class="d-inline">
+            <form action="/gratitudeNotes/edit/<%= note.id %>" method="GET" class="d-inline">
               <button type="submit" class="btn btn-sm btn-warning me-2">Edit</button>
             </form>
-            <form action="/delete/<%= note.id %>" method="POST" class="d-inline">
+            <form action="/gratitudeNotes/delete/<%= note.id %>" method="POST" class="d-inline">
               <button type="submit" class="btn btn-sm btn-danger">Delete</button>
             </form>
           </div>
         </li>
       <% }); %>
     </ul>
-    <a href="/add" class="btn btn-primary mt-3">Add Gratitude Note</a>
+    <a href="/gratitudeNotes/add" class="btn btn-primary mt-3">Add Gratitude Note</a>
   </div>
 </body>
 </html>
