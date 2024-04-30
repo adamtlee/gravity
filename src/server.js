@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Import the gratitudeController
 const gratitudeController = require('./controllers/gratitudeController');
 const memoryController = require('./controllers/memoryController');
+const connectionController = require('./controllers/connectionController');
 const pagesController = require('./controllers/pagesController');
 
 // Set the view engine to EJS
@@ -33,6 +34,15 @@ app.post('/memories/add', memoryController.addMemory);
 app.get('/memories/edit/:id', memoryController.getEditMemoryPage);
 app.post('/memories/edit/:id', memoryController.editMemory); 
 app.post('/memories/delete/:id', memoryController.deleteMemory);
+
+// Connections
+app.get('/connections', connectionController.getConnections); 
+// app.get('/connections/add', connectionController.getAddConnectionsPage); 
+// TODO
+// app.post('/connections/add', connectionController.addConnection); 
+// app.get('/connections/edit/:id', connectionController.getEditConnectionPage);
+// app.post('/connections/edit/:id', connectionsController.editConnection); 
+// app.post('/connections/delete/:id', connectionController.deleteConnection);
 
 
 // Start the server
