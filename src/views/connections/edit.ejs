@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Connection</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1>Edit Connection</h1>
+    <form action="/connections/edit/<%= connection.id %>" method="POST">
+      <div class="mb-3">
+        <label for="first_name" class="form-label">First Name:</label>
+        <textarea id="first_name" name="first_name" class="form-control" required><%= connection.first_name %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="last_name" class="form-label">Last name:</label>
+        <textarea id="last_name" name="last_name" class="form-control" required><%= connection.last_name %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="relationship" class="form-label">Relationship:</label>
+        <textarea id="relationship" name="relationship" class="form-control" required><%= connection.relationship %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea id="description" name="description" class="form-control" required><%= connection.description %></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Connection</button>
+    </form>
+  </div>
+</body>
+</html>

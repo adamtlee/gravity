@@ -37,12 +37,11 @@ app.post('/memories/delete/:id', memoryController.deleteMemory);
 
 // Connections
 app.get('/connections', connectionController.getConnections); 
-// app.get('/connections/add', connectionController.getAddConnectionsPage); 
-// TODO
-// app.post('/connections/add', connectionController.addConnection); 
-// app.get('/connections/edit/:id', connectionController.getEditConnectionPage);
-// app.post('/connections/edit/:id', connectionsController.editConnection); 
-// app.post('/connections/delete/:id', connectionController.deleteConnection);
+app.get('/connections/add', connectionController.getAddConnectionPage); 
+app.post('/connections/add', connectionController.addConnection); 
+app.get('/connections/edit/:id', connectionController.getEditConnectionPage);
+app.post('/connections/edit/:id', connectionController.editConnection); 
+app.post('/connections/delete/:id', connectionController.deleteConnection);
 
 
 // Start the server

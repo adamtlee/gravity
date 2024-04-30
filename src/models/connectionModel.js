@@ -40,7 +40,7 @@ class Connection {
       fs.writeFileSync(dataFilePath, JSON.stringify(filteredConnections, null, 2));
     }
   
-    static getMemoryById(id) {
+    static getConnectionById(id) {
       const allConnections = Connection.getAllConnections();
       return allConnections.find(connection => connection.id === id);
     }

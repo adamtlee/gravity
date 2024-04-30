@@ -13,8 +13,8 @@ const connectionController = {
   }, 
 
   addConnection: (req, res) => {
-    const { connection } = req.body; 
-    const newConnection = new Connection(connection); 
+    const { first_name, last_name, relationship, details } = req.body; 
+    const newConnection = new Connection(first_name, last_name, relationship, details); 
 
     // In a real app, you'd save the connection to a database
     newConnection.save();
