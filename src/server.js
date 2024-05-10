@@ -6,7 +6,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Import the gratitudeController
-const gratitudeController = require('./controllers/gratitudeController');
 const memoryController = require('./controllers/memoryController');
 const connectionController = require('./controllers/connectionController');
 const pagesController = require('./controllers/pagesController');
@@ -14,18 +13,16 @@ const pagesController = require('./controllers/pagesController');
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 
-// Routes
+// Import Routers
+const gratitudeRouter = require('./routers/gratitudeRouter'); 
+
+// Use Routers
+app.use('/gratitudeNotes', gratitudeRouter );
 
 // Pages
 app.get('/', pagesController.getIndex);
 
-// Gratitude Notes
-app.get('/gratitudeNotes', gratitudeController.getGratitudeNotes);
-app.get('/gratitudeNotes/add', gratitudeController.getAddGratitudeNotePage);
-app.post('/gratitudeNotes/add', gratitudeController.addGratitudeNote);
-app.get('/gratitudeNotes/edit/:id', gratitudeController.getEditGratitudeNotePage);
-app.post('/gratitudeNotes/edit/:id', gratitudeController.editGratitudeNote);
-app.post('/gratitudeNotes/delete/:id', gratitudeController.deleteGratitudeNote);
+
 
 // Memories
 app.get('/memories', memoryController.getMemories);
