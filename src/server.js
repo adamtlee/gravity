@@ -15,22 +15,15 @@ app.set('view engine', 'ejs');
 
 // Import Routers
 const gratitudeRouter = require('./routers/gratitudeRouter'); 
+const memoryRouter = require('./routers/memoryRouter');
 
 // Use Routers
 app.use('/gratitudeNotes', gratitudeRouter );
+app.use('/memory', memoryRouter ); 
 
 // Pages
 app.get('/', pagesController.getIndex);
 
-
-
-// Memories
-app.get('/memories', memoryController.getMemories);
-app.get('/memories/add', memoryController.getAddMemoryPage);
-app.post('/memories/add', memoryController.addMemory);
-app.get('/memories/edit/:id', memoryController.getEditMemoryPage);
-app.post('/memories/edit/:id', memoryController.editMemory); 
-app.post('/memories/delete/:id', memoryController.deleteMemory);
 
 // Connections
 app.get('/connections', connectionController.getConnections); 
