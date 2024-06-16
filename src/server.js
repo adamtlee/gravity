@@ -11,21 +11,33 @@ const pagesController = require('./controllers/pagesController');
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 
+// Middleware to parse JSON body
+app.use(express.json());
+
 // Import Routers
 const gratitudeRouter = require('./routers/gratitudeRouter'); 
 const memoryRouter = require('./routers/memoryRouter');
 const connectionRouter = require('./routers/connectionRouter');
+const memoryDbRouter = require('./routers/memoryDbRouter');
 
 // Use Routers
 app.use('/gratitudeNotes', gratitudeRouter );
 app.use('/memories', memoryRouter ); 
 app.use('/connections', connectionRouter );
+app.use('/api/memories', memoryDbRouter);
 
 // Pages
 app.get('/', pagesController.getIndex);
 
+// Import and sync the Sequelize models
+const sequelize = require('./config/database');
+const Memory = require('./models/memoryDbModel');
 
-
+sequelize.sync().then(() => {
+    console.log('Database & tables created!');
+}).catch((error) => {
+    console.error('Unable to create database and tables:', error);
+});
 
 
 // Start the server

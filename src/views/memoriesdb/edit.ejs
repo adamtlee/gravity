@@ -1,0 +1,9 @@
+<%- layout('layouts/main') %>
+<h2>Edit Memory</h2>
+<form action="/memories/<%= memory.id %>?_method=PUT" method="POST">
+    <label for="experience">Experience:</label>
+    <input type="text" name="experience" id="experience" value="<%= memory.experience %>" required>
+    <label for="reflection">Reflection:</label>
+    <input type="text" name="reflection" id="reflection" value="<%= memory.reflection %>" required>
+    <button type="submit">Update Memory</button>
+</form>
