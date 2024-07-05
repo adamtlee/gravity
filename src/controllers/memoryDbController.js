@@ -18,7 +18,7 @@ const memoryDbController = {
         try {
             const memory = await Memory.findByPk(req.params.id);
             if (memory) {
-                return memory;
+                res.status(200).json(memory);
             } else {
                 res.status(404).json({ error: 'Memory not found' });
             }
@@ -31,7 +31,7 @@ const memoryDbController = {
         try {
             const { experience, reflection } = req.body;
             const memory = await Memory.create({ experience, reflection });
-            return memory;
+            res.status(201).json(memory);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

@@ -19,12 +19,16 @@ const gratitudeRouter = require('./routers/gratitudeRouter');
 const memoryRouter = require('./routers/memoryRouter');
 const connectionRouter = require('./routers/connectionRouter');
 const memoryDbRouter = require('./routers/memoryDbRouter');
+const connectionDbRouter = require('./routers/connectionDbRouter');
+const gratitudeNoteDbRouter = require('./routers/gratitudeNoteDbRouter');
 
 // Use Routers
 app.use('/gratitudeNotes', gratitudeRouter );
 app.use('/memories', memoryRouter ); 
 app.use('/connections', connectionRouter );
 app.use('/api/memories', memoryDbRouter);
+app.use('/api/connections', connectionDbRouter);
+app.use('/api/gratitudeNotes', gratitudeNoteDbRouter); 
 
 // Pages
 app.get('/', pagesController.getIndex);
@@ -32,6 +36,8 @@ app.get('/', pagesController.getIndex);
 // Import and sync the Sequelize models
 const sequelize = require('./config/database');
 const Memory = require('./models/memoryDbModel');
+const Connection = require('./models/connectionDbModel');
+const GratitudeNote = require('./models/gratitudeNoteDbModel');
 
 sequelize.sync().then(() => {
     console.log('Database & tables created!');
