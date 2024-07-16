@@ -1,7 +1,7 @@
-const Gratitude = require('../models/gratitudeNoteDbModel');
+const Gratitude = require('../models/gratitudeNoteModel');
 
 
-const gratitudeNoteDbController = {
+const gratitudeNoteController = {
     async getAllGratitudeNotes(req, res) {
         try {
             const gratitudes = await Gratitude.findAll();
@@ -70,4 +70,4 @@ const gratitudeNoteDbController = {
 };
 
 
-module.exports = gratitudeNoteDbController;
+module.exports = gratitudeNoteController;

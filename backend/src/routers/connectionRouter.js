@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connectionDbController = require('../controllers/connectionDbController');
+const connectionDbController = require('../controllers/connectionController');
 
 router.get('/', connectionDbController.getAllConnections);
 

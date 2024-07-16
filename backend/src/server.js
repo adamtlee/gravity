@@ -15,9 +15,9 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 
 // Import Routers
-const memoryDbRouter = require('./routers/memoryDbRouter');
-const connectionDbRouter = require('./routers/connectionDbRouter');
-const gratitudeNoteDbRouter = require('./routers/gratitudeNoteDbRouter');
+const memoryDbRouter = require('./routers/memoryRouter');
+const connectionDbRouter = require('./routers/connectionRouter');
+const gratitudeNoteDbRouter = require('./routers/gratitudeNoteRouter');
 
 // Use Routers
 app.use('/api/memories', memoryDbRouter);
@@ -29,9 +29,9 @@ app.get('/', pagesController.getIndex);
 
 // Import and sync the Sequelize models
 const sequelize = require('./config/database');
-const Memory = require('./models/memoryDbModel');
-const Connection = require('./models/connectionDbModel');
-const GratitudeNote = require('./models/gratitudeNoteDbModel');
+const Memory = require('./models/memoryModel');
+const Connection = require('./models/connectionModel');
+const GratitudeNote = require('./models/gratitudeNoteModel');
 
 sequelize.sync().then(() => {
     console.log('Database & tables created!');

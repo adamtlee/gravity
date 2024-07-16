@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const gratitudeNoteDbController = require('../controllers/gratitudeNoteDbController');
+const gratitudeNoteDbController = require('../controllers/gratitudeNoteController');
 
 router.get('/', gratitudeNoteDbController.getAllGratitudeNotes);
 

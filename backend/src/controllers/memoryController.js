@@ -1,7 +1,7 @@
-const Memory = require('../models/memoryDbModel');
+const Memory = require('../models/memoryModel');
 
 
-const memoryDbController = {
+const memoryController = {
     async getAllMemories(req, res) {
         try {
             const memories = await Memory.findAll();
@@ -70,4 +70,4 @@ const memoryDbController = {
 };
 
 
-module.exports = memoryDbController;
+module.exports = memoryController;

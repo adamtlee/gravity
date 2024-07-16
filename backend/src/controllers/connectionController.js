@@ -1,7 +1,7 @@
-const Connection = require('../models/connectionDbModel');
+const Connection = require('../models/connectionModel');
 
 
-const connectionDbController = {
+const connectionController = {
     async getAllConnections(req, res) {
         try {
             const connections = await Connection.findAll();
@@ -72,4 +72,4 @@ const connectionDbController = {
 };
 
 
-module.exports = connectionDbController;
+module.exports = connectionController;
