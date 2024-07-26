@@ -7,6 +7,9 @@
 # Configurations
 config/
 
+# Ignore environment configurations
+.env
+
 ### Node ###
 # Logs
 logs
