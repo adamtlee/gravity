@@ -5,17 +5,39 @@
 
   <% content_for :title, "Contacts" %>
 
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center mb-5">
     <h1 class="font-bold text-4xl">Contacts</h1>
     <%= link_to "New contact", new_contact_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="contacts" class="min-w-full">
-    <% @contacts.each do |contact| %>
-      <%= render contact %>
-      <p>
-        <%= link_to "Show this contact", contact, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+  <div id="contacts" class="min-w-full overflow-x-auto">
+    <table class="table-auto border-collapse w-full text-left bg-white shadow rounded-lg">
+      <thead>
+        <tr class="bg-gray-100 text-gray-700">
+          <th class="py-2 px-4 border-b">First Name</th>
+          <th class="py-2 px-4 border-b">Last Name</th>
+          <th class="py-2 px-4 border-b">Email</th>
+          <th class="py-2 px-4 border-b">Phone</th>
+          <th class="py-2 px-4 border-b">Location</th>
+          <th class="py-2 px-4 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr class="hover:bg-gray-50">
+            <td class="py-2 px-4 border-b"><%= contact.first_name %></td>
+            <td class="py-2 px-4 border-b"><%= contact.last_name %></td>
+            <td class="py-2 px-4 border-b"><%= contact.email %></td>
+            <td class="py-2 px-4 border-b"><%= contact.phone %></td>
+            <td class="py-2 px-4 border-b"><%= contact.location %></td>
+            <td class="py-2 px-4 border-b">
+              <%= link_to "Show", contact, class: "ml-2 rounded-lg py-2 px-4 bg-gray-100 text-gray-700 inline-block font-medium" %>
+              <%= link_to "Edit", edit_contact_path(contact), class: "ml-2 rounded-lg py-2 px-4 bg-blue-100 text-blue-700 inline-block font-medium" %>
+              <%= link_to "Delete", contact, method: :delete, data: { confirm: "Are you sure?" }, class: "ml-2 rounded-lg py-2 px-4 bg-red-100 text-red-700 inline-block font-medium" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
