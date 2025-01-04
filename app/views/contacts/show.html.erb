@@ -11,5 +11,7 @@
     <div class="inline-block ml-2">
       <%= button_to "Destroy this contact", @contact, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
+
+    <hr class="my-5"> <h3 class="text-lg font-medium">Events for <%= @contact.full_name %>:</h3> <% if @contact.events.any? %> <ul> <% @contact.events.each do |event| %> <li class="my-2"> <strong>Date:</strong> <%= event.date %> - <strong>Location:</strong> <%= event.location %> - <strong>Summary:</strong> <%= event.summary %> <%= link_to "Edit", edit_event_path(event), class: "ml-2 text-blue-600" %> </li> <% end %> </ul> <% else %> <p>No events found for this contact.</p> <% end %> <%= link_to "Add Event", new_event_path(contact_id: @contact.id), class: "mt-5 rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium" %>
   </div>
 </div>

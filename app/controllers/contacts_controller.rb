@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1 or /contacts/1.json
   def show
+    @events = @contact.events
   end
 
   # GET /contacts/new
