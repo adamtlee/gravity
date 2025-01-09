@@ -5,17 +5,37 @@
 
   <% content_for :title, "Events" %>
 
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center mb-5">
     <h1 class="font-bold text-4xl">Events</h1>
     <%= link_to "New event", new_event_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="events" class="min-w-full">
-    <% @events.each do |event| %>
-      <%= render event %>
-      <p>
-        <%= link_to "Show this event", event, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+  <div id="events" class="min-w-full overflow-x-auto">
+    <table class="table-auto border-collapse w-full text-left bg-white shadow rounded-lg">
+      <thead>
+        <tr class="bg-gray-100 text-gray-700">
+          <th class="py-2 px-4 border-b">Contact</th> 
+          <th class="py-2 px-4 border-b">Date</th>
+          <th class="py-2 px-4 border-b">Location</th>
+          <th class="py-2 px-4 border-b">Summary</th>
+          <th class="py-2 px-4 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+          <tr class="hover:bg-gray-50">
+            <td class="py-2 px-4 border-b"><%= event.contact.full_name %></td>
+            <td class="py-2 px-4 border-b"><%= event.date %></td>
+            <td class="py-2 px-4 border-b"><%= event.location %></td>
+            <td class="py-2 px-4 border-b"><%= event.summary %></td>
+            <td class="py-2 px-4 border-b">
+              <%= link_to "Show", event, class: "ml-2 rounded-lg py-2 px-4 bg-gray-100 text-gray-700 inline-block font-medium" %>
+              <%= link_to "Edit", edit_event_path(event), class: "ml-2 rounded-lg py-2 px-4 bg-blue-100 text-blue-700 inline-block font-medium" %>
+              <%= link_to "Delete", event, method: :delete, data: { confirm: "Are you sure?" }, class: "ml-2 rounded-lg py-2 px-4 bg-red-100 text-red-700 inline-block font-medium" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
