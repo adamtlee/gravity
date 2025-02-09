@@ -7,4 +7,8 @@ class Contact < ApplicationRecord
     def location
         "#{city}, #{state}, #{country}"
     end
+
+    def self.count_records
+        self.count
+    end
 end

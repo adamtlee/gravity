@@ -1,5 +1,6 @@
 class Api::V1::ContactsController < ApplicationController
     before_action :set_contact, only: [:show, :update, :destroy]
+    skip_before_action :verify_authenticity_token
   
     # GET /api/v1/contacts
     def index
@@ -16,9 +17,9 @@ class Api::V1::ContactsController < ApplicationController
     def create
       @contact = Contact.new(contact_params)
       if @contact.save
-        render json: @contact, status: :created, location: api_v1_contact_url(@contact)
+        render json: JSON.pretty_generate(@contact.as_json), status: :created, location: api_v1_contact_url(@contact)
       else
-        render json: @contact.errors, status: :unprocessable_entity
+        render json: JSON.pretty_generate(@contact.errors.as_json), status: :unprocessable_entity
       end
     end
   
@@ -43,7 +44,7 @@ class Api::V1::ContactsController < ApplicationController
     end
   
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :phone, :city, :state, :country)
+      params.require(:contact).permit(:first_name, :last_name, :email, :phone, :city, :state, :country, :status)
     end
   end
   
