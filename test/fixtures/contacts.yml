@@ -5,11 +5,14 @@ one:
   last_name: MyString
   email: MyString
   phone: MyString
-  location: MyString
-
+  city: MyString
+  state: MyString
+  country: MyString
 two:
   first_name: MyString
   last_name: MyString
   email: MyString
   phone: MyString
-  location: MyString
+  city: MyString
+  state: MyString
+  country: MyString

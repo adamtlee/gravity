@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  resource :session
+  resources :passwords, param: :token
   root 'static_pages#home'
+  get 'dashboard', to: 'static_pages#dashboard'
   resources :events
   resources :contacts
 

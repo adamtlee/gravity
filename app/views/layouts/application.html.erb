@@ -24,7 +24,13 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+  <div> 
+    <% if authenticated? %>
+      <%= button_to "Sign Out", session_path, method: :delete  %>
+    <% else %>
+      <%= link_to "Sign In", new_session_path %>
+    <% end %>
+  </div>
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>

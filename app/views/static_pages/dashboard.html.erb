@@ -1,0 +1,21 @@
+<div>
+<h1 class="font-bold text-4xl">StaticPages#dashboard</h1></br>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+  <div class="bg-blue-100 p-6 rounded-lg shadow-md w-32 h-32 flex items-center justify-center">
+    <p>Inactive: <%= @inactive_contacts %></p>
+  </div>
+  <div class="bg-green-100 p-6 rounded-lg shadow-md w-32 h-32 flex items-center justify-center">
+    <p>Active: <%= @active_contacts %></p>
+  </div>
+  <div class="bg-red-100 p-6 rounded-lg shadow-md w-32 h-32 flex items-center justify-center">
+    <p>Deactivated: <%= @deactivated_contacts %></p>
+  </div>
+  <div class="bg-yellow-100 p-6 rounded-lg shadow-md w-32 h-32 flex items-center justify-center">
+    <p>Contact count: <%= @contact_count %></p>
+  </div>
+  <div class="bg-purple-100 p-6 rounded-lg shadow-md w-32 h-32 flex items-center justify-center">
+    <p>Event count: <%= @event_count %></p>
+  </div>
+</div>
+</div>
