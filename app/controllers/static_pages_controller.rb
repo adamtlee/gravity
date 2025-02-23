@@ -10,5 +10,6 @@ class StaticPagesController < ApplicationController
 
     @contact_count = Contact.count_records
     @event_count = Event.count_records
+    @video_count = Video.count_records
   end
 end

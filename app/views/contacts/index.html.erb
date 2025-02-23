@@ -8,6 +8,8 @@
   <div class="flex justify-between items-center mb-5">
     <h1 class="font-bold text-4xl">Contacts</h1>
     <%= link_to "New contact", new_contact_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'Export to CSV', contacts_path(format: :csv) %>
+    <%= link_to 'Export to Excel', contacts_path(format: :xlsx) %>
   </div>
 
   <div id="contacts" class="min-w-full overflow-x-auto">

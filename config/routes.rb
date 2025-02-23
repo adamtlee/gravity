@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
   resource :session
   resources :passwords, param: :token
   root 'static_pages#home'
